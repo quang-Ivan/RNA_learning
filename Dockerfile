@@ -192,7 +192,9 @@ RUN Rscript -e 'options(repos = list(CRAN = "https://mirrors.tuna.tsinghua.edu.c
 RUN Rscript -e 'options(repos = list(CRAN = "https://mirrors.tuna.tsinghua.edu.cn/CRAN/")); BiocManager::install(c("edgeR","ballgown"),dependencies = TRUE)'
 RUN Rscript -e 'options(repos = list(CRAN = "https://mirrors.tuna.tsinghua.edu.cn/CRAN/")); BiocManager::install(c("GenomicRanges", "rhdf5", "biomaRt"),dependencies = TRUE,force = TRUE)'
 # 安装 devtools 并通过 devtools 安装 sleuth
-RUN Rscript -e "options(repos = list(CRAN = 'https://mirrors.tuna.tsinghua.edu.cn/CRAN/')); BiocManager::install('pachterlab/sleuth')"
+# RUN Rscript -e "options(repos = list(CRAN = 'https://mirrors.tuna.tsinghua.edu.cn/CRAN/')); BiocManager::install('pachterlab/sleuth')"
+RUN Rscript -e "options(timeout=600); BiocManager::install('pachterlab/sleuth')"
+
 
 ARG DEBIAN_FRONTEND=dialog
 USER ubuntu
