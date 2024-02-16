@@ -42,6 +42,8 @@ RUN cd ~ && \
     wget http://genomedata.org/rnaseq-tutorial/bashrc_copy && \
     mv bashrc_copy ~/.bashrc && \
     echo "export PATH=/home/ubuntu/bin/tophat-2.1.1.Linux_x86_64:\$PATH" >> ~/.bashrc && \
+    echo "export PATH=/home/ubuntu/bin/fastp:\$PATH" >> ~/.bashrc && \
+    echo "export PATH=/home/ubuntu/sratoolkit.3.0.10-ubuntu64/bin:\$PATH" >> ~/.bashrc && \
     source ~/.bashrc && \
     mkdir -p ~/workspace/rnaseq/
 
